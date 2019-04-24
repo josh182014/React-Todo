@@ -1,7 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList'
 import TodoForm from './components/TodoComponents/TodoForm'
-import Todo from './components/TodoComponents/Todo'
 
 
 const TodoData = [
@@ -48,10 +47,12 @@ class App extends React.Component {
 
   addTask = event => {
     event.preventDefault();
-    console.log(this.state.TodoData.task)
-    this.setState({
-      TodoDataOnState: [...this.state.TodoDataOnState, this.state.TodoData],
-    });
+    if (this.state.TodoData.task.length >= 1) {
+      console.log(this.state.TodoData.task)
+      this.setState({
+        TodoDataOnState: [...this.state.TodoDataOnState, this.state.TodoData],
+      });
+    }
   };
 
 
