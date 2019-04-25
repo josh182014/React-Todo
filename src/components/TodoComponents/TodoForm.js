@@ -39,6 +39,7 @@ class TodoForm extends React.Component {
         return (
             <form className='form'>
             <input 
+            required
             placeholder='Task'
             name="input"
             value={this.state.input} 

@@ -3,9 +3,14 @@
     flex-wrap: wrap;
     max-width: 800px;
     align-items: center;
-    border: 1px solid red;
+    border: 10px solid gray;
+    padding: 20px;
+    padding-bottom: 50px;
 }
 
+.eachItem {
+    cursor: default;
+}
 .item {
     font-size: 20px;
     border-bottom: 1px solid gray;
@@ -18,7 +23,9 @@
     justify-content: center;
     margin-left: 50px;
 }
-
+.form input {
+    height: 25px;
+}
 .button {
     height: 30px;
     justify-content: space-between;
