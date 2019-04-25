@@ -2,6 +2,7 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList'
 import TodoForm from './components/TodoComponents/TodoForm'
 
+import './components/TodoComponents/Todo.css'
 
 const TodoData = [
   {
@@ -50,7 +51,7 @@ class App extends React.Component {
     if (this.state.eachTask.task.length >= 1) {
       console.log('task added', this.state.eachTask.task)
       this.setState({
-        TodoDataOnState: [...this.state.TodoDataOnState, {...this.state.eachTask, id: Date.now()}],
+        TodoDataOnState: [...this.state.TodoDataOnState, {...this.state.eachTask, id: Date.now()}]
       });
       console.log('all tasks', this.state.TodoDataOnState)
     }
