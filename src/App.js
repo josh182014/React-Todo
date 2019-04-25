@@ -36,22 +36,23 @@ class App extends React.Component {
     console.log(this.state.TodoDataOnState)
   }
 
-  handleChanges = event => {
-    this.setState({
-      eachTask: {
-        ...this.state.eachTask,
-        [event.target.name]: event.target.value
-      }
-    });
-  };
+  // handleChanges = event => {
+  //   this.setState({
+  //     eachTask: {
+  //       ...this.state.eachTask,
+  //       [event.target.name]: event.target.value
+  //     }
+  //   });
+  // };
 
 
   addTask = event => {
-    event.preventDefault();
-    if (this.state.eachTask.task.length >= 1) {
+    console.log(event)
+    if (event.length >= 1) {
       console.log('task added', this.state.eachTask.task)
+      console.log('input', this.state)
       this.setState({
-        TodoDataOnState: [...this.state.TodoDataOnState, {...this.state.eachTask, id: Date.now()}]
+        TodoDataOnState: [...this.state.TodoDataOnState, {...this.state.eachTask, task: event, id: Date.now()}]
       });
       console.log('all tasks', this.state.TodoDataOnState)
     }
@@ -100,7 +101,8 @@ class App extends React.Component {
       <div>
         <h2>ToDo:</h2>
         <TodoList TodoData={this.state.TodoDataOnState} toggleItem={this.toggleItem} />
-        <TodoForm handleChanges={this.handleChanges} addTask={this.addTask} removeCompleted={this.removeCompleted} />
+        <TodoForm  addTask={this.addTask} removeCompleted={this.removeCompleted} />
+        <button onClick={this.removeCompleted}>Clear Completed</button> 
       </div>
     );
   }
