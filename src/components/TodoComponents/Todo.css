@@ -1,7 +1,31 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+    align-items: center;
+    border: 1px solid red;
+}
+
 .item {
     font-size: 20px;
+    border-bottom: 1px solid gray;
+    padding: 7px;
+    width: 100vw;
+
 }
+
+.form {
+    justify-content: center;
+    margin-left: 50px;
+}
+
+.button {
+    height: 30px;
+    justify-content: space-between;
+}
+
 
 .completed {
     text-decoration: line-through;
 }
+
