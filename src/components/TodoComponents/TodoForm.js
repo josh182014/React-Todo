@@ -27,8 +27,11 @@ class TodoForm extends React.Component {
 
     submit = event => {
         event.preventDefault();
-        this.props.addTask(this.state.input)
-        this.setState({ input: '' })
+        if (this.state.input.length >= 1) {
+            console.log('inside submit', this.state.input)
+            this.props.addTask(this.state.input)
+            this.setState({ input: '' })
+        }
     }
     
 

@@ -92,6 +92,14 @@ class App extends React.Component {
     });
   };
 
+  removeAll = (event) => {
+    event.preventDefault()
+    this.setState({
+      TodoDataOnState: [{task: "¯\\_(ツ)_/¯", id: 'nah'}]
+    });
+    console.log('oops')
+  };
+
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
@@ -103,6 +111,7 @@ class App extends React.Component {
         <TodoList TodoData={this.state.TodoDataOnState} toggleItem={this.toggleItem} />
         <TodoForm  addTask={this.addTask} removeCompleted={this.removeCompleted} />
         <button onClick={this.removeCompleted}>Clear Completed</button> 
+        <button onClick={this.removeAll}>S**** it I'm Watching Netflix</button> 
       </div>
     );
   }
