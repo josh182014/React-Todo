@@ -36,7 +36,6 @@ class App extends React.Component {
   }
 
   handleChanges = event => {
-    console.log(event.target.value);
     this.setState({
       eachTask: {
         ...this.state.eachTask,
@@ -53,10 +52,43 @@ class App extends React.Component {
       this.setState({
         TodoDataOnState: [...this.state.TodoDataOnState, {...this.state.eachTask, id: Date.now()}],
       });
-      console.log('whole task', this.state.TodoDataOnState)
+      console.log('all tasks', this.state.TodoDataOnState)
     }
   };
 
+  toggleItem = event => {
+    this.setState({
+      TodoDataOnState: this.state.TodoDataOnState.map(task => {
+        console.log('task', task)
+        console.log('event', event)
+        if (event === task.id) {
+          console.log('true?')
+          return {
+            ...task,
+            completed: !task.completed
+          }
+        }
+        return task
+      })
+    })
+  }
+
+
+  removeCompleted = (event) => {
+    event.preventDefault()
+    // const newGroceriesArray = this.state.groceries.filter((item) => {
+    //   if (!item.purchased) {
+    //     return true
+    //   } else {
+    //     return false
+    //   }
+    // })
+    // this.setState({ groceries: newGroceriesArray });
+
+    this.setState({
+      TodoDataOnState: this.state.TodoDataOnState.filter(item => !item.completed)
+    });
+  };
 
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -66,13 +98,16 @@ class App extends React.Component {
     return (
       <div>
         <h2>ToDo:</h2>
-        {this.state.TodoDataOnState.map(eachTask => (
-          <TodoList eachTask={eachTask.task} key={eachTask.id} />
-        ))}
-        <TodoForm handleChanges={this.handleChanges} addTask={this.addTask} />
+        <TodoList TodoData={this.state.TodoDataOnState} toggleItem={this.toggleItem} />
+        <TodoForm handleChanges={this.handleChanges} addTask={this.addTask} removeCompleted={this.removeCompleted} />
       </div>
     );
   }
 }
 
 export default App;
+
+//  paste this inbetween todolist and todoform if shit stops working
+        // {this.state.TodoDataOnState.map(eachTask => (
+        //   <TodoList eachTask={eachTask} key={eachTask.id} toggleItem={this.toggleItem}  />
+        // ))}

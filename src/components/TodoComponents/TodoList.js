@@ -5,7 +5,13 @@ import Todo from './Todo'
 
 
 function TodoList(props) {
-    return Todo(props);
+    console.log('todolist',props)
+    return (
+    props.TodoData.map(eachTask => (
+        
+        <Todo key={eachTask.id} item={eachTask} toggleItem={props.toggleItem} />
+    ))
+    )
 }
 
 export default TodoList;
