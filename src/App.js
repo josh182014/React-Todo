@@ -16,8 +16,8 @@ const TodoData = [
   },
   {
   task: 'outside of app',
-  id: '',
-  completed: ''
+  id: 542524956,
+  completed: false
   }
 ];
 
@@ -26,19 +26,20 @@ class App extends React.Component {
     super();
     this.state = {
       TodoDataOnState: TodoData,
-      TodoData: {
+      eachTask: {
         task: '',
         id: '',
-        completed: ''
+        completed: false
       }
     }
+    console.log(this.state.TodoDataOnState)
   }
 
   handleChanges = event => {
     console.log(event.target.value);
     this.setState({
-      TodoData: {
-        ...this.state.TodoData,
+      eachTask: {
+        ...this.state.eachTask,
         [event.target.name]: event.target.value
       }
     });
@@ -47,11 +48,12 @@ class App extends React.Component {
 
   addTask = event => {
     event.preventDefault();
-    if (this.state.TodoData.task.length >= 1) {
-      console.log(this.state.TodoData.task)
+    if (this.state.eachTask.task.length >= 1) {
+      console.log('task added', this.state.eachTask.task)
       this.setState({
-        TodoDataOnState: [...this.state.TodoDataOnState, this.state.TodoData],
+        TodoDataOnState: [...this.state.TodoDataOnState, {...this.state.eachTask, id: Date.now()}],
       });
+      console.log('whole task', this.state.TodoDataOnState)
     }
   };
 
@@ -64,8 +66,8 @@ class App extends React.Component {
     return (
       <div>
         <h2>ToDo:</h2>
-        {this.state.TodoDataOnState.map(TodoData => (
-          <TodoList TodoData={TodoData.task} key={TodoData.task} />
+        {this.state.TodoDataOnState.map(eachTask => (
+          <TodoList eachTask={eachTask.task} key={eachTask.id} />
         ))}
         <TodoForm handleChanges={this.handleChanges} addTask={this.addTask} />
       </div>
