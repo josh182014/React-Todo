@@ -108,10 +108,14 @@ class App extends React.Component {
     return (
       <div className='container'>
         <h2>ToDo:</h2>
+        <div className='formcontainer'>
         <TodoForm className='form'  addTask={this.addTask} removeCompleted={this.removeCompleted} />
         <button className='button' onClick={this.removeCompleted}>Clear Completed</button> 
         <button className='button' onClick={this.removeAll}>S**** it I'm Watching Netflix</button> 
+        </div>
+        <div className='listcontainer'>
         <TodoList TodoData={this.state.TodoDataOnState} toggleItem={this.toggleItem} />
+        </div>
       </div>
     );
   }
