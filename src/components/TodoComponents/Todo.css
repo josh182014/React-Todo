@@ -1,0 +1,61 @@
+.container {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+    height: 90vh;
+    align-items: center;
+    align-content: flex-start;
+    border: 10px solid gray;
+    padding: 20px;
+    justify-content: space-between;
+    background-color: lightblue;
+}
+.listcontainer {
+    padding-top: 50px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-self: flex-start;
+    align-items: flex-start;
+}
+.eachItem {
+    cursor: default;
+    width: 100%;
+    /* max-height: 30px; */
+
+}
+.item {
+    font-size: 20px;
+    border-bottom: 1px solid gray;
+    padding: 7px;
+    width: 98%;
+    user-select: none;
+
+}
+
+.formcontainer {
+    justify-content: flex-end;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    align-items: center;
+}
+
+.form {
+    justify-content: center;
+}
+.form input {
+    height: 25px;
+}
+.button {
+    height: 30px;
+    justify-content: space-between;
+}
+
+
+.completed {
+    text-decoration: line-through;
+}
+
